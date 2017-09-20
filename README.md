@@ -1,4 +1,4 @@
-# Validation Provider (React)
+# Validator Provider (React)
 
 High-Order Component (Provider) to validate components inside a container (Ex.: Form). It's going to provide a way to validate the childrens without knowing them and have no "references" to them without using Redux or any other Plugin.
 
