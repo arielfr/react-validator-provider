@@ -1,6 +1,6 @@
-const ValidationProvider = require('./src/components/ValidationProvider');
-const injectValidations = require('./src/injectors/validations');
-const injectValidator = require('./src/injectors/validator');
+const ValidationProvider = require('./components/ValidationProvider');
+const injectValidations = require('./injectors/validations');
+const injectValidator = require('./injectors/validator');
 
 /**
  * Export ValidationProvider Component
