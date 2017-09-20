@@ -4,6 +4,14 @@ High-Order Component (Provider) to validate components inside a container (Ex.: 
 
 This works using the High-Order Component pattern, so all of your Components to be validated and the validator must be stateful.
 
+## Installation
+
+Install the dependency on your project
+
+```bash
+npm install --save validator-provider
+```
+
 ## Usage
 
 Lets see an example, where you got a `Form` component (validator) and an `CustomInput` (validated) component that needs to be validated.
@@ -163,10 +171,10 @@ module.exports = injectValidations(CustomInput);
 
 You can inject the validator on another Component, could be a button, or something else, but, the main use is going to be a form.
 
-# License
+## License
 
 Copyright 2017 Ariel Rey. Released under the terms of the MIT license.
 
-# Pull Requests
+## Pull Requests
 
 Im open to all fixes and improvements that you can make. Please send your Pull Request
