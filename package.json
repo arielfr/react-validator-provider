@@ -1,0 +1,23 @@
+{
+  "name": "validator-provider",
+  "version": "1.0.0",
+  "description": "Form Validator Done Right! using High-Order Component to validate child components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielfr/react-validator-provider.git"
+  },
+  "author": "Ariel Rey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arielfr/react-validator-provider/issues"
+  },
+  "homepage": "https://github.com/arielfr/react-validator-provider#readme",
+  "dependencies": {
+    "prop-types": "15.5.10",
+    "react": "15.6.1"
+  }
+}
