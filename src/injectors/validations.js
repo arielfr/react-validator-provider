@@ -35,7 +35,7 @@ module.exports = (ComponentToWrap) => {
   }
 
   ComponentWithValidation.contextTypes = {
-    register: PropTypes.func.isRequired,
+    register: PropTypes.func,
   };
 
   return ComponentWithValidation;

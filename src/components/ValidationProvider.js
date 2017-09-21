@@ -82,9 +82,9 @@ class ValidationProvider extends React.Component {
  * Define the childComponentTypes
  */
 ValidationProvider.childContextTypes = {
-  register: PropTypes.func.isRequired,
-  isValid: PropTypes.func.isRequired,
-  getInvalid: PropTypes.func.isRequired,
+  register: PropTypes.func,
+  isValid: PropTypes.func,
+  getInvalid: PropTypes.func,
 };
 
 module.exports = ValidationProvider;

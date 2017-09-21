@@ -33,8 +33,8 @@ module.exports = (ComponentToWrap) => {
   }
 
   ComponentWithValidation.contextTypes = {
-    isValid: PropTypes.func.isRequired,
-    getInvalid: PropTypes.func.isRequired,
+    isValid: PropTypes.func,
+    getInvalid: PropTypes.func,
   };
 
   return ComponentWithValidation;
