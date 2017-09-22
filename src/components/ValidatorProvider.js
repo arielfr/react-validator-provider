@@ -56,7 +56,11 @@ class ValidatorProvider extends React.Component {
    */
   register(reference) {
     // Add the component reference to the list
-    this.components.push(reference);
+    if (this.props.reverseValidation) {
+      this.components.unshift(reference);
+    } else {
+      this.components.push(reference);
+    }
   }
 
   /**
@@ -78,6 +82,14 @@ class ValidatorProvider extends React.Component {
     return React.Children.only(this.props.children);
   }
 }
+
+ValidatorProvider.defaultProps = {
+  reverseValidation: false,
+};
+
+ValidatorProvider.propTypes = {
+  reverseValidation: PropTypes.bool,
+};
 
 /**
  * Define the childComponentTypes
