@@ -35,7 +35,8 @@ class ValidatorProvider extends React.Component {
 
     for (; i < componentsLength; i++) {
       if (this.components[i].validate) {
-        if (this.components[i].validate()) {
+        // If the method returns TRUE it means that is valid
+        if (!this.components[i].validate()) {
           invalid.push(this.components[i]);
           if (breakOnInvalid) {
             break;

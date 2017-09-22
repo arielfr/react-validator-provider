@@ -111,8 +111,10 @@ class CustomInput extends React.Component {
     this.validate = this.validate.bind(this);
   }
   
+  // MUST RETURN TRUE IF THE VALIDATION IS VALID
   validate() {
-    return (this.input.value === '');
+    // Validate that is not empty
+    return (this.input.value !== '');
   }
   
   render() {
@@ -123,7 +125,9 @@ class CustomInput extends React.Component {
 module.exports = injectValidations(CustomInput);
 ```
 
-Here, you can see that the validate function is only checked that the field is not empty
+Here, you can see that the validate function is only checked that the field is not empty.
+
+**validate method must return `TRUE` if it is valid**
 
 ## Validations
 
