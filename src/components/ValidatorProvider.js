@@ -1,7 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-class ValidationProvider extends React.Component {
+class ValidatorProvider extends React.Component {
   constructor(props) {
     super(props);
     this.components = [];
@@ -12,7 +12,7 @@ class ValidationProvider extends React.Component {
 
   /**
    * Register child components that need to be validated
-   * @returns {{register: ValidationProvider.register}}
+   * @returns {{register: ValidatorProvider.register}}
    */
   getChildContext() {
     return {
@@ -81,10 +81,10 @@ class ValidationProvider extends React.Component {
 /**
  * Define the childComponentTypes
  */
-ValidationProvider.childContextTypes = {
+ValidatorProvider.childContextTypes = {
   register: PropTypes.func,
   isValid: PropTypes.func,
   getInvalid: PropTypes.func,
 };
 
-module.exports = ValidationProvider;
+module.exports = ValidatorProvider;

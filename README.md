@@ -17,18 +17,18 @@ npm install --save validator-provider
 Lets see an example, where you got a `Form` component (validator) and an `CustomInput` (validated) component that needs to be validated.
 
 ```javascript
-const { ValidationProvider } = require('ValidationProvider');
+const { ValidatorProvider } = require('validator-provider');
 const Form = require('FormComponent');
 const CustomInput = require('CustomInput');
 
 const Page = (props) => (
-  <ValidationProvider>
+  <ValidatorProvider>
     <Form method="POST">
       <label>
         <CustomInput />
       </label>
     </Form>
-  </ValidationProvider>
+  </ValidatorProvider>
 );
 ```
 
@@ -59,7 +59,7 @@ Let's continue with the example, if i have a Form that only needs to be submited
 
 ```javascript
 const React = require('react');
-const { injectValidator } = require('ValidationProvider');
+const { injectValidator } = require('validator-provider');
 
 class Form extends React.Component {
   constructor(props) {
@@ -68,7 +68,7 @@ class Form extends React.Component {
   }
   
   onSubmit(event) {
-    if( !this.props.validationProvider.isValid() ) {
+    if( !this.props.validatorProvider.isValid() ) {
       event.preventDefault();
     }
   }
@@ -103,7 +103,7 @@ If you don't wrap the Component that you want to validate inside the inject, the
 
 ```javascript
 const React = require('react');
-const { injectValidations } = require('ValidationProvider');
+const { injectValidations } = require('validator-provider');
 
 class CustomInput extends React.Component {
   constructor(props) {
@@ -133,7 +133,7 @@ In the next example, i am going to use the validate to send if the component is 
 
 ```javascript
 const React = require('react');
-const { injectValidations } = require('ValidationProvider');
+const { injectValidations } = require('validator-provider');
 
 class CustomInput extends React.Component {
   constructor(props) {

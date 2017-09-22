@@ -23,12 +23,12 @@ module.exports = (ComponentToWrap) => {
     }
 
     render() {
-      const validationProvider = {
+      const validatorProvider = {
         isValid: this.context.isValid,
         getInvalid: this.context.getInvalid,
       };
 
-      return (<ComponentToWrap {...this.props} validationProvider={validationProvider} />);
+      return (<ComponentToWrap {...this.props} validatorProvider={validatorProvider} />);
     }
   }
 
