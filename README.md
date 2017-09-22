@@ -37,14 +37,6 @@ Fist we need to understand that you have two types of Component:
 - validator: This is the component that is going to check that all the components inside are valid
 - validated: This is the component that is going to execute the validations
 
-### ValidatorProvider Props
-
-ValidatorProvider components accepts the next props:
-
-- reverseValidation (default: false)
-
-When the validator provider check the elements is going to start for the last one register (Rendered element). This is explain later, please continue reading.
-
 ### Injections
 
 Continue with the example, you have two injections possibles:
@@ -178,75 +170,6 @@ class CustomInput extends React.Component {
 
 module.exports = injectValidations(CustomInput);
 ```
-
-#### Prop: reverseValidation
-
-If you wan't to make validations joining two inputs like a expiration date:
-
-__ / __
-
-You can create a contain element and inject a `injectValidations` on the parent div and use the validate method to validate if the childrens are valid checking the state (if you save if has an error or not).
-
-If you want to do that, you need to reverse the validation, because the children elements are going to be `register` on the Provider after the parent
-
-Example:
-
-```javascript
-const Page = (props) => (
-  <ValidatorProvider reverseValidation={true}>
-    <Form method="POST">
-      <ExpirationDate />
-    </Form>
-  </ValidatorProvider>
-);
-```
-
-Lets check the ExpirationDate component.
-
-```javascript
-const React = require('react');
-const { injectValidations } = require('validator-provider');
-
-class ExpirationDate extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    // Set if valid on the state
-    this.state = {
-      valid: false
-    };
-    
-    this.validate = this.validate.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-  
-  validate() {
-    // If both are valid, this component is valid
-    return this.day.state.valid && this.month.state.valid;
-  }
-  
-  onChange() {
-    // Maybe show the error here too
-    this.setState({
-      valid: (this.input.value === '')
-    });
-  }
-  
-  render() {
-    return (
-      <div>
-        <Day ref={c => this.day = c}/>
-        <span>/</span>
-        <Month ref={c => this.month = c}/>
-      </div>
-    );
-  };
-}
-
-module.exports = injectValidations(ExpirationDate);
-```
-
-The Month and Year are going to be validated first if you not set reverseValidation. So, you need to set it to true so ExpirationDate could check the state of the children on the validation method of it's component to check if they are valid.
 
 ## Not only for forms
 
