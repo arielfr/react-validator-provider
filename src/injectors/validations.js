@@ -18,7 +18,10 @@ module.exports = (ComponentToWrap) => {
      * Register the component to render on the Provider via register method
      */
     componentDidMount() {
-      this.context.register(this.node);
+      // Check if the component is wrapped by the validator and have the register method injected
+      if (this.context.register !== undefined) {
+        this.context.register(this.node);
+      }
     }
 
     /**

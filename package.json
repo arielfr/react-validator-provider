@@ -1,6 +1,6 @@
 {
   "name": "validator-provider",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Form Validator Done Right! using High-Order Component to validate child components",
   "main": "lib/index.js",
   "scripts": {
