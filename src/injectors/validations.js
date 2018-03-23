@@ -24,6 +24,13 @@ module.exports = (ComponentToWrap) => {
       }
     }
 
+    componentWillUnmount() {
+      // Check if the component is wrapped by the validator and have the register method injected
+      if (this.context.unregister !== undefined) {
+        this.context.unregister(this.node);
+      }
+    }
+
     /**
      * Just to be more clearly
      * @param ref
@@ -39,6 +46,7 @@ module.exports = (ComponentToWrap) => {
 
   ComponentWithValidation.contextTypes = {
     register: PropTypes.func,
+    unregister: PropTypes.func,
   };
 
   return ComponentWithValidation;

@@ -6,6 +6,7 @@ class ValidatorProvider extends React.Component {
     super(props);
     this.components = [];
     this.register = this.register.bind(this);
+    this.unregister = this.unregister.bind(this);
     this.isValid = this.isValid.bind(this);
     this.getInvalid = this.getInvalid.bind(this);
   }
@@ -17,6 +18,7 @@ class ValidatorProvider extends React.Component {
   getChildContext() {
     return {
       register: this.register,
+      unregister: this.unregister,
       isValid: this.isValid,
       getInvalid: this.getInvalid,
     };
@@ -60,6 +62,25 @@ class ValidatorProvider extends React.Component {
   }
 
   /**
+   * This method is going to remove from components list the reference that is unmount
+   * @param reference
+   */
+  unregister(reference) {
+    let indexToRemove = -1;
+
+    this.components.forEach((ref, index) => {
+      if (ref === reference) {
+        indexToRemove = index;
+      }
+    });
+
+    // Remove specific element from list
+    if (indexToRemove !== -1) {
+      this.components.splice(indexToRemove, 1);
+    }
+  }
+
+  /**
    * Check if the components are valid
    * You can choose if you want the validator breaks on any invalid component
    * @param breakOnInvalid
@@ -84,6 +105,7 @@ class ValidatorProvider extends React.Component {
  */
 ValidatorProvider.childContextTypes = {
   register: PropTypes.func,
+  unregister: PropTypes.func,
   isValid: PropTypes.func,
   getInvalid: PropTypes.func,
 };
